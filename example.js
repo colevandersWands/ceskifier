@@ -23,6 +23,14 @@ const prePointcut = (name, node) => {
 
 import { ceskify } from "./ceskify.js";
 
+// to configure which transitions and aspects of state are tracked
+//  useful if you are tracing a large program and are only interested in some aspects
+const ceskingConfig = {
+  callstack: true,
+  stack: true
+  // ...
+};
+
 /*
   history: full step-by-step history of the cesk machine and transitions:
   {
@@ -37,7 +45,8 @@ import { ceskify } from "./ceskify.js";
 const { history, pointcut, something = ADVICE } = ceskify(
   preAdvice,
   prePointcut,
-  aran // passing a reference to your instance for the cesk machine
+  aran, // passing a reference to your instance for the cesk machine
+  ceskingConfig
 );
 
 // --- use aran as you normally would, but with the wrapped advice and pointcut ---

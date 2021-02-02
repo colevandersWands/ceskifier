@@ -5,7 +5,7 @@ import { stepFactory } from "./step.js";
 import { deepClone } from "somewhere";
 
 // aran instance is passed for
-export const ceskify = (userAdvice, userPointcut, aran) => {
+export const ceskify = (userAdvice, userPointcut, aran, config = {}) => {
   const history = {
     // how to account for hoisting in here?
     //   is transition 0 used for declaring hoisted variables & functions?
